@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage{delimset, diffcoeff, interval}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage{amsmath, amsthm, amsfonts, mathtools, nicematrix, bm, cancel, siunitx}
+\usepackage{subcaption}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{graphicx, booktabs, accents, enumerate}
+\usepackage{import, float, pdfpages, transparent, xcolor}
+% \usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[margin=1in]{geometry}
+\usepackage[hang]{footmisc} % to make footnotes align
+\usepackage{cleveref}
+\usepackage{authblk}
+\bibliographystyle{IEEEtran}
+% \colorlinks=true
+% \linkcolor=blue
+% \urlcolor=cyan
+% \documentstyle[fullpage]{article}
+% Define theorem styles here based on the definition style (used for definitions and examples)
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem{implementation}{Implementation}
+% Define theorem styles here based on the plain style (used for theorems, lemmas, propositions)
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+% Define theorem styles here based on the remark style (used for remarks and notes)
+\theoremstyle{remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{warning}{Warning}
+\newtheorem*{notation}{Notation}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{solution}{Solution}
+
+% config
+\intervalconfig{soft  open  fences ,separator  symbol=;,}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % so we can tag the final equation in a list of aligns
+\newcommand{\defn}{\coloneqq} %defined as
+\newcommand{\reals}{\mathbb{R}} %space of reals
+\newcommand{\natrl}{\mathbb{N}} %space of natural numbers
+\newcommand{\lap}{\Delta} %laplacian
+\newcommand{\eps}{\epsilon}
+\newcommand{\man}{\mathcal{M}} % manifold
+\newcommand{\vg}{\dot{\gamma}} % dotted velocity curve
+\newcommand{\veta}{\dot{\eta}} % dotted velocity eta
+\newcommand{\tanb}{\Gamma T \man} % tangent bundle
+\newcommand{\ddx}[1]{\diffp*{}{x^#1}}
+% \DeclareMathOperator{\min}{min}
+\DeclareMathOperator{\Tr}{Tr}
+
+% To italicizse and bold rows in a table
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+#1\ignorespaces
+}
+
+
+\begin{document}
+\title{Topological effects in gravitational lensing}
+\author[1]{Alex Leviyev}
+\affil[1]{Center for Graviational Physics, University of Texas at Austin}
+\date{\today}
+% \tableofcontents
+\maketitle
+
+\begin{abstract}
+Deflection of light by gravitational fields is of significant practical interest in astrophysics. Applications range from constraining cosmological parameters to studying the distribution of dark matter in galaxies. In this note we review an interesting theoretical study illustrating that gravitational lensing depends on \textbf{topological} properties. That is, questions about whether multiple images appear, etc... may be answered by looking at topological properties of the spacetime. Global properties and curvature are related by the so called Gauss-Bonnet theorem, which relates the Gaussian curvature to the Euler characteristic.
+% High-precision posterior exploration forms the backbone of many scientific and engineering disciplines, e.g astronomy. Popular tools used for such tasks are often based on the tried and true Metropolis-Hastings algorithm--a \textit{stochastic} procedure that simulates a Markov chain that is gauranteed to explore the target. However, simulating such a Markov chain for problems with computationally expensive physical models or large datasets is often infeasible. Stein variational gradient descent (SVGD) is an alternative that has recently blown up in popularity due to its tractability
+\end{abstract}
+
+% \section{Intro}
+% \input{1-intro}
+% \input{2-toyproblems}
+% \input{extra}
+% \appendix
+\input{1}
+\bibliographystyle{amsplain}
+\bibliography{references}
+
+\end{document}
