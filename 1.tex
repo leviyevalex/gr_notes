@@ -30,22 +30,43 @@ Let $\gamma: I \to \man$ be a curve. Then the \textbf{$i$'th coordinate image of
 \gamma^i_{(x)}(\lambda) \defn (x \circ \gamma)^i (\lambda) = (x_i \circ \gamma) (\lambda)
 \end{equation}
 \end{definition}
-
+%
 \begin{definition}[]\label{}
 Let $\gamma: I \to \man$ be a curve. Then the \textbf{velocity field along $\gamma$} is the map $\vg: \reals \to \tanb$ such that $\lambda \mapsto \vg_{(x)}^i (\lambda) \ddx{i} \rvert_{\gamma(\lambda)}$
 \end{definition}
-
+%
 \begin{proposition}[]\label{}
 Let $\gamma: I \to \man$ be a curve, and $\vg$ be the velocity field along $\gamma$. Then
 \begin{equation}\label{}
 g(\vg(\lambda), \vg(\lambda)) = \vg_{(x)}^{\mu}(\lambda) \vg_{(x)}^{\nu}(\lambda) g_{\mu \nu} \rvert_{\gamma(\lambda)}
 \end{equation}
 \end{proposition}
-
+%
 \begin{theorem}[Fermat \cite{1992grle.book.....S}]\label{}
 Let $(\man, g)$ be a spacetime, $S \in \man$ be a source, and $l$ be an observer. Then a smooth null curve $\gamma: (0,1) \to \man$ such that $\gamma(0) = S$ and $\gamma(1) = l(\tau)$ is a null geodesic iff its arrival time $\tau$ is stationary under first order variations of $\gamma$ within the set of smooth null curves from $S$ to $l$.
 \end{theorem}
 \begin{proof}
-$(\implies)$. Consider a family of variances $\eta(\lambda, \epsilon)$ such that $\eta(\cdot, \epsilon) : (0,1) \to \man$, $\eta(0, \epsilon) = S$ for every $\eps \le \abs{\eps_0} \ll 1$, and $\eta(1, \epsilon) = l(\tau_0 + t(\epsilon))$ where $t: \reals \to \reals$
-with $t(0)=0$. Furthermore, let $g(\veta(\lambda, \eps), \veta(\lambda, \eps)) = 0$ for every $\lambda \in (0,1)$, where $\veta$ denotes the velocity field along $\eta(\cdot, \eps)$.  
+$(\implies)$. Consider a family of variances $\eta(\lambda, \epsilon)$ such that $\eta(\cdot, \epsilon) : (0,1) \to \man$, $\eta(0, \epsilon) = S$ for every $\eps \le \abs{\eps_0} \ll 1$, and $\eta(1, \epsilon) = l(\tau_0 + t(\epsilon))$ where $t: \reals \to \reals$ with $t(0)=0$.
+Furthermore, let $g(\veta(\lambda, \eps), \veta(\lambda, \eps)) = 0$ for every $\lambda \in (0,1)$, where $\veta$ denotes the velocity field along $\eta(\cdot, \eps)$. We have constructed a family of null variations with fixed beginning and open end.
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img/null-variations.png}
+	\caption{Family of null variations}
+	\label{}
+\end{figure}
+
+The action takes the form
+\begin{equation}\label{}
+S[\gamma_{\eps}] = \int_0^1 L(\eta(\lambda, \eps), \nabla_{\lam} \eta(\lam, \eps)) \, d\lam
+\end{equation}
+with the Lagrangian
+\begin{align*}
+L(\eta(\lam, \eps), \veta(\lam, \eps)) &= \frac{1}{2} g (\nabla_{\lam} \eta(\lam, \eps), \nabla_{\lam} \eta(\lam, \eps)) \\
+&= \frac{1}{2} g_{\mu, \nu} \rvert_{\gamma(\lam)} \veta^{\mu} (\lam, \eps) \veta^{\nu}(\lam, \eps)
+\end{align*}
+
+
+
+
 \end{proof}
