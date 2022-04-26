@@ -1,7 +1,17 @@
 %!TEX root = main.tex
 
 \section{Introduction}
-We will be discussing the phenomena of gravitational lensing from the point of view of general relativity. We begin by briefly reviewing the generalization of Fermat's principle to Lorentzian spacetimes. This generalization leads us to the observation that for static spacetimes there exists a one to one correspondence between null geodesics on the spacetime and geodesics of a classical Riemannian manifold (called the Fermat, or optical manifold). This allows us to bring to bear the tools of classical surface analysis and turns the study of light rays on spacetime into a classical differential geometry problem. As a specific example, we will study in detail the optical geometry of Schwarzschild. Specifically, we will show that it is necessary for a manifold to exhibit topologically nontrivial properties in order for a gravitational len to form multiple images.
+We will be discussing the phenomena of gravitational lensing using a relatively novel approach.
+Although lensing is a inherently geometric phenomena, many lensing effects may be adequately studied in a Newtonian limit, and thus bypass the need to do general relativistic calculations.
+This is not always the case however, and a lot of work has been done studying gravitational lensing in general Lorentzian manifolds.
+The approach we follow here is a sort of middle ground, known as \textbf{optical geometry}, which replaces the problem of studying null geodesics (light rays) on a Lorentzian manifold $(\man, g)$ with studying purely spatial geodesics of a simpler, purely spatial manifold $(\Sigma, \fermat)$.
+This allows us to bring to bear all the powerful tools of classical surface analysis, and turns the study of the behavior of light rays in the presence of gravity into a classical differential geometry problem!
+
+We organize this note as follows.
+We begin by briefly reviewing the generalization of Fermat's principle to Lorentzian spacetimes.
+This generalization will lead to the observation that there exists a one to one correspondence between null geodesics on a static spacetime $(\man, g)$ and classical geodesics of a related spatial manifold $(\Sigma, \fermat)$, where $\fermat$ is called the \textbf{Fermat}, or \textbf{optical} metric.
+The majority of the paper will be focused on studying the optical geometry of the Schwarzschild metric.
+Concretely, we will show that gravitational lensing in a Schwarzschild spacetime occurs \textit{because} Schwarzschild has nontrivial genus (i.e, $g \ge 1$).\footnote{All of these concepts will be concretely defined in what follows.}
 
 % This is the subject of \textbf{optical geometry}.
 % We will begin by discussing the generalisation of Fermats principle to spacetime. In order to do concrete (optical geometric) calculations, we will specialize to \textbf{static spacetimes}, which turn out to have Riemannian structure.
@@ -112,7 +122,7 @@ Since $\veta$ is lightlike and $\dot{\xi}$ is timelike, their contraction is non
 \\$(\impliedby)$ See \cite{1992grle.book.....S}.
 \end{proof}
 %
-A well known feature of General Relativity is that light rays follow null geodesics in spacetime.
+A well known feature of general relativity is that light rays follow null geodesics in spacetime.
 Interestingly, we may show using Fermat's theorem \cite{PerlickV1990OFpi} that null geodesics on a \textbf{stationary} spacetime are in one-to-one correspondence with geodesics on a Finsler-Randers type manifold, and null geodesics on a \textbf{static} spacetime are in one-to-one correspondence with geodesics on a Riemannian manifold. The strategy of optical geometry is to study these simpler spatial geodesics instead. These simpler metrics are called the \textbf{optical metric}, or the \textbf{Fermat metric}.
 
 \begin{definition}[]\label{}
@@ -127,18 +137,22 @@ A spacetime $(\man, g)$ is called \textbf{stationary} if there is a timelike kil
 Although this formalism works for stationary spacetimes, we will restrict ourselves to the following special case.
 %
 \begin{definition}[]\label{}
-A spacetime $(\man, g)$ is called \textbf{static} if it is stationary, and its timelike Killing vector field $T$ is \textbf{hypersurface orthogonal}. That is, $T_{[a} \partial_b T_{c]}$.
+A spacetime $(\man, g)$ is called \textbf{static} if it is stationary, and its timelike Killing vector field $T$ is \textbf{hypersurface orthogonal}. That is, $T_{[a} \partial_b T_{c]} = 0$.
 \end{definition}
+\begin{remark}[Static spacetimes]\label{}
 It may be shown \cite{straumann2012general} that there exist coordinates for a static spacetime such that the metric decomposes to
-\begin{equation}\label{}
+\begin{equation}\label{eq:static-metric-def}
 g = -V^2 dt^2 + h_{ab} dx^a dx^b
 \end{equation}
 where $V^2 \defn T^a T_a$, and $h_{ab}$ has $(+, +, +)$ signature.
-\begin{remark}[]\label{}
-The null geodesics of a Lorentzian metric are unaffected by \textbf{conformal transformations} of the metric. That is, multiplication by positive functions. Since we are interested only in light rays, we may drop the $V^2$ without loss of generality.
+Furthermore, the null geodesics of a Lorentzian metric are unaffected by \textbf{conformal transformations} of the metric. That is, multiplication by positive functions. Since we are interested only in light rays, we may divide the RHS of \cref{eq:static-metric-def} by $V^2$ without loss of generality, and consider instead
+\begin{equation}\label{eq:static-metric}
+g = -dt^2 + \fermat_{ab} dx^a dx^b
+\end{equation}
+where $\fermat_{ab} \defn \frac{h_{ab}}{V^2}$.
 \end{remark}
 \begin{corollary}[]\label{}
-The null geodesics of a static spacetime are equivalent to the geodesics of the purely spatial metric $h=h_{ab} dx^a dx^b$
+The null geodesics on a static spacetime with metric \cref{eq:static-metric} are equivalent to the geodesics of a Riemannian manifold with metric $\fermat$.
 \end{corollary}
 \begin{proof}
 Let $\eta$ be a null curve, and consider the proof of Fermat's principle from earlier. Let us consider the special case where the observer is an integral curve of the Killing vector $T$, such that
@@ -147,12 +161,12 @@ l^{\mu} = (\lambda, x_1, x_2, x_3)
 \end{equation}
 The fact that $\eta$ must be a null curve provides a relationship between its derivative components
 \begin{equation}\label{}
-\dot{\eta}^0 = \sqrt{h_{ij} \dot{\eta}^i \dot{\eta}^j}
+\dot{\eta}^0 = \sqrt{\fermat_{ij} \dot{\eta}^i \dot{\eta}^j}
 \end{equation}
 We know that $\eta^0(0) = const$, $\eta^0(1) = \tau(\eta)$. Therefore
 \begin{align*}
-\int_0^1 \dot{\eta}^0 &= \dot{\eta}^0(1) - \dot{\eta}^0(0) = \int_0^1 \sqrt{h_{ij} \dot{\eta}^i \dot{\eta}^j} \\
-&\implies \tau(\eta) = \int_0^1 \sqrt{h_{ij} \dot{\eta}^i \dot{\eta}^j} ds + const
+\int_0^1 \dot{\eta}^0 &= \dot{\eta}^0(1) - \dot{\eta}^0(0) = \int_0^1 \sqrt{\fermat_{ij} \dot{\eta}^i \dot{\eta}^j} \\
+&\implies \tau(\eta) = \int_0^1 \sqrt{\fermat_{ij} \dot{\eta}^i \dot{\eta}^j} ds + const
 \end{align*}
 Note that since static metrics have time independent components, the RHS is independent of time, and resembles the length functional on a Riemannian manifold with metric $h$. By Fermat's theorem, varying this length functional will return a null geodesic of the original spacetime.
 \end{proof}
@@ -190,23 +204,39 @@ Note that since static metrics have time independent components, the RHS is inde
 % \end{definition}
 
 \section{Optical geometry of Schwarzschild}
-In this section, we will discuss as a particular example the optical geometry of the Schwarzschild metric. Recall that the Schwarzschild metric is given by
+In this section we use the correspondence just established to study the optical geometry of the Schwarzschild metric, which we will see yields a two-dimensional Riemannian metric. A natural question to ask when one receives a two-dimensional Riemannian manifold is ``can I visualize this two-manifold as an embedded surface in three dimensional Euclidean space?" The answer in this case is yes, and turns out to simpler than one may think at first glance: finding an explicit embedding is unecessary. Instead, we find a relationship for the derivatives of the surface parameterized in cylindrical coordinates, which will allow us to visualize the optical geometry in Euclidean space $\euc$. We will see that this embedded surface has a ``catenoid" like shape which yields an everywhere negative Gaussian curvature. This is a surprising fact to find... gravitational lensing should only occur when two or more geodesics emanating from the same point $s \in \Sigma$ (source) on the catenoid recombine at a later point $o \in \Sigma$ (observer). However, it is known that geodesics diverge locally on negatively curved surfaces. Surely this implies that geodesics never rejoin. It turns out this is only true for the case of \textit{simply connected} surfaces, which the optical geometry does not yield. In this way, nontrivial topology allows for gravitational lensing to occur.
+
+\begin{definition}[]\label{}
+The components of the \textbf{Schwarzschild metric} are given by
 \begin{equation}\label{}
-ds^2 = -\brk[r]2{1-\frac{2m}{r}} dt^2 + \frac{dr^2}{1-\frac{2m}{r}} + r^2(d\theta^2 + sin^2\theta d\phi^2)
+g = -\brk[r]2{1-\frac{2m}{r}} dt^2 + \frac{dr^2}{1-\frac{2m}{r}} + r^2(d\theta^2 + sin^2\theta d\phi^2)
 \end{equation}
-Without loss of generality we only consider the equatorial plane $\theta=\frac{\pi}{2}$. To build intuition for this geometry we aim to find an isometric embedding into three dimensional Euclidean space $\mathbb{E}^3$. We proceed in cylindrical coordinates, and solve for the null geodesics
+
+\end{definition}
+
+Without loss of generality we only consider the equatorial plane $\theta=\frac{\pi}{2}$.
+\begin{definition}[]\label{}
+The components of the \textbf{optical metric of equatorial Schwarzschild} are given by
+\begin{equation}\label{}
+\fermat = \frac{dr^2}{\brk[r]1{1 - \frac{2m}{r}}^2} + \frac{r^2}{1 - \frac{2m}{r}} d\phi^2.
+\end{equation}
+The geodesics of this metric are called \textbf{spatial light rays}.
+\end{definition}
+
+
+To build intuition for this geometry we aim to find an isometric embedding into three dimensional Euclidean space $\mathbb{E}^3$. We proceed in cylindrical coordinates
 % \begin{equation}\label{}
 % dt^2 = \frac{dr^2}{\brk[r]1{1 - \frac{2m}{r}}^2} + \frac{r^2}{1 - \frac{2m}{r}} d\phi^2
 % \end{equation}
 
 \begin{align*}
-dt^2 &= \frac{dr^2}{\brk[r]1{1 - \frac{2m}{r}}^2} + \frac{r^2}{1 - \frac{2m}{r}} d\phi^2 = dz^2 + dR^2 + R^2 d\phi^2
+\fermat &= \frac{dr^2}{\brk[r]1{1 - \frac{2m}{r}}^2} + \frac{r^2}{1 - \frac{2m}{r}} d\phi^2 = dz^2 + dR^2 + R^2 d\phi^2.
 \end{align*}
 The following result will help us visualize this surface.
 \begin{proposition}[]\label{}
-Let $(z, R, \phi)$ denote cylindrical coordinates. Then for the equatorial plane of the Fermat-Schwarzschild metric the following holds:
+Let $(z, R, \phi)$ denote cylindrical coordinates. Then for the optical metric of equatorial Schwarzschild the following holds:
 \begin{equation}\label{}
-\brk[r]2{\diff{z}{R}}^2 = \frac{4mr-9m^2}{(r-3m)^2}
+\diff{z}{R} = \frac{\sqrt{4mr-9m^2}}{r-3m}.
 \end{equation}
 \end{proposition}
 \begin{proof}
@@ -231,9 +261,9 @@ We find an expression for $\diff{z}{R}$.
 &= r^2 - 4mr + 4m^2 - 2rm + 4m^2 + m^2 \\
 &= r^2 - 6mr + 9m^2 \\
 \implies \brk[r]2{\diff{z}{R}}^2 &= \frac{r^2 \brk[r]2{1 - \frac{2m}{r}}}{r^2 - 6mr + 9m^2} + \frac{-r^2 + 6mr - 9m^2}{r^2 - 6mr + 9m^2} \\
-&= \frac{4mr - 9m^2}{(r-3m)^2}
+&= \frac{4mr - 9m^2}{(r-3m)^2} \, ,
 \end{align*}
-as expected.
+which yields the desired result.
 \end{proof}
 In light of the previous calculation, we make the following observations:
 \begin{enumerate}[i)]
@@ -245,14 +275,16 @@ In light of the previous calculation, we make the following observations:
 I.e, $z$ goes as $\sqrt{R}$ asymptotically
 \item
 $\diff{z}{R}$ is singular at $R(r=3m)$. This corresponds to the circular photon orbit of Schwarzschild.
+\item
+For $r>3m$, the slope is positive. On the other hand, for $\frac{9}{4}m < r < 3m$ the slope is negative.
 \end{enumerate}
 %
 A surface with these properties is represented in \ref{fig:embedding}.
 Visually, it appears as though this surface has everywhere negative Gaussian curvature. Indeed this is case, and may be shown analytically.
 \begin{proposition}[]\label{}
-The Gaussian curvature associated with the Fermat metric of equatorial Schwarzschild has everywhere negative curvature. Specifically, for $r > 2m$,
+The Gaussian curvature associated with the Fermat metric of equatorial Schwarzschild has everywhere negative curvature. Specifically, for $r > \frac{9}{4}m$,
 \begin{equation}\label{}
-K = - \frac{2m}{r^3}\brk[r]2{1 - \frac{3m}{2r}}
+K = - \frac{2m}{r^3}\brk[r]2{1 - \frac{3m}{2r}} < 0.
 \end{equation}
 \end{proposition}
 %
@@ -264,26 +296,106 @@ K = - \frac{2m}{r^3}\brk[r]2{1 - \frac{3m}{2r}}
 \end{figure}
 
 \section{Gauss-Bonnet and gravitational lensing}
-We are now in possession on a negatively curved surface $\Sigma$ on which geodesic behavior tells us about the behavior of light rays on the equatorial plane of Schwarzschild. We may now use well known results from surface analysis to tease out the physics we are interested in.
+We are now in possession of a negatively curved surface $\Sigma$ on which geodesic behavior tells us about the behavior of light rays on the equatorial plane of Schwarzschild. We may now use well known results from surface analysis to tease out the physics we are interested in.
 \begin{question}[]\label{}
 Under what circumstances can two geodesics with the same initial point $s \in \Sigma$ (source) meet at another point $o \in \Sigma$ (observer)?
 \end{question}
-The answer to this condition will tell us under what conditions one may observe multiple images! An interesting result is that negative curvature causes geodesics on the surface to diverge on small scales. Indeed, the following result is a precise statement.
+The answer to this question will tell us under what conditions one may observe multiple images! An interesting result is that negative curvature causes geodesics on the surface to diverge on small scales. Indeed, the following result is a precise statement.
 \begin{theorem}[]\label{}
 Let $\gamma: I \to \Sigma$ be a curve in $\Sigma$ such that $\gamma(0)=p$, $\dot{gamma}(0) = v$. Now, let $J$ be a Jacobi field along $\gamma$ satisfying $J(0)=0$, $J'(0)=w$, and suppose $g(v,v)=g(w,w)=1$. Then
 \begin{equation}\label{}
 \norm{J(t)} = t - \frac{K}{6}t^3 + \order(t^4)
 \end{equation}
-where $K$ is the Gaussian curvature of $Sigma$.
+where $K$ is the Gaussian curvature of $\Sigma$.
 \end{theorem}
-
-
-
+Note that the Jacobi field is a ``data structure" which contains information about how nearby geodesics deviate from each other.
+In fact, the norm of this field along $\gamma$ controls this rate of spread.
+To first order, geodesics diverge at a rate of $t$, which is typical for Euclidean spaces.
+This result states that curvature enters as a third order correction. Specifically, if the curvature is negative, there is more relative spread than compared to flat space.
+This is precisely the phenomena of \textbf{geodesic deviation}.
+At first glance, it appears as though geodesics can never reconverge since we have a result stating that locally geodesics diverge.
+Surely then geodesics must diverge globally... this intuition is correct, however there exist situations where convergence may occur!
+Namely, geodesics of a negatively curved surface may reconverge at a later time only if the surface is topologically nontrivial!
+A proof of this statement requires the Gauss-Bonnet theorem, which is a famous theorem from classical differential geometry which relates the Gaussian curvature, the \textbf{geodesic deviation}, and the \textbf{Euler characteristic}.\footnote{This theorem has a similar flavor to contour integration and Stokes theorem. An oriented path traces out a region, and connects quantities that are defined along paths with quantities defined on a region or on its boundary.}
+\begin{definition}[]\label{}
+Let $\Sigma$ be an oriented surface, and $\gamma: \reals \to \Sigma$ be a regular curve parameterized by arclength. Then the \textbf{geodesic curvature} $k_g:\reals \to \reals$ is defined by $k_g(t) \defn \norm{\nabla_{\dot{\gamma}(t)}(t)}$.
+\end{definition}
+Recall that for $\gamma$ to be a geodesic, $\nabla_{\dot{\gamma}(t)}(t)$, must be equal to zero. Thus, the geodesic curvature $k_g(t)$ along a curve $\gamma(t)$ measures the failure of a curve to be a geodesic at $t$. This quantity is also referred to as the norm of the \textbf{acceleration}.
+%
+The following discussion is based off of \cite{tapp2016differential}.
+\begin{definition}[]\label{}
+Let $R$ be a regular region of a regular surface $\Sigma$.
+\begin{enumerate}[i)]
+\item A \textbf{triangle} in $\Sigma$ means a polygonal region in $\Sigma$ with three vertices. The three smooth segments of the boundary of a triangle are called its \textbf{edges}.
+\item A \textbf{triangulation} of $R$ means a finite family $\brk[c]{T_1, \ldots, T_F}$ of triangles such that $\cup_i T_i = R$, and if $i \neq j$, $T_i \cap T_j$ either is empty or is a common edge or a common vertex of $T_i$ and $T_j$.
+\item The \textbf{Euler characteristic} of a triangulation $\brk[c]{T_1, \ldots, T_F}$ of $R$ is $\chi = V - E + F$, where $F$ is the number of triangles (faces), $E$ is the number of edges (each counted only once).
+\end{enumerate}
+\end{definition}
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.75\textwidth]{img/triangulation.png}
+	\caption{A triangulation of $R$. Each interior edge receives opposite orientations from the two triangles that share it. Here $\chi(R) = V - E + F = 6 - 10 + 5 = 1$.}
+	\label{}
+\end{figure}
 
 \begin{theorem}[]\label{}
-Suppose $M$ is a compact two dimensional Riemannian manifold with boundary. Let $K$ be the Gaussian curvature of M, and let $k_g$ be the geodesic curvature on the boundary. Then
-\begin{equation}\label{}
-\int_M K \, dA + \int_{\partial M} k_g \, ds = 2 \pi \xi(M)
-\end{equation}
-where $dA$ is area element, $ds$ is the line element along the boundary, and $\xi(M)$ is the Euler characteristic of $M$.
+If $R$ is a regular region of a regular surface $S$, then there exists a triangulation of $R$. Furthermore, every two triangulations of $R$ have the same Euler characteristic.
 \end{theorem}
+
+This is a remarkable result. It states that no matter how you ``mesh" a ``nice'' surface, a particular combination of faces, edges, and vertices will always remain constant, and thus contains information that is inherent to the surface. It may be shown that the Euler characteristic is related to the \textbf{genus} of a surface, defined by $\chi = 2 - 2g + b$, where $b$ is the number of boundary components. The genus is related to the number of ``holes" a surface has.
+
+\begin{definition}[]\label{}
+The \textbf{exterior angle} at the junction of two piecewise differentiable curves is the angular difference between the tangent vectors at the junction.
+\end{definition}
+% \begin{definition}[]\label{}
+% Let $\Sigma$ be a surface (possibly with boundary). A \textbf{polygonal triangulation} of $\Sigma$ is a collection of verticies and edges such that
+% \begin{enumerate}[i)]
+% \item both boundary points of each edge are vertices
+% \item each vertex is a boundary for at least one edge
+% \item each edge is disjoint from the vertices except at its boundaries
+% \item all edges are disjoint from one another except possible at their boundaries
+% \item each face is a smooth polygon
+% \end{enumerate}
+% \end{definition}
+
+% \begin{definition}[]\label{}
+% Given a finite polygonal triangulation of $\Sigma$ with $v$ many vertices, $e$ many edges, and $f$ many faces, the \textbf{Euler characteristic} of $\Sigma$, $\chi(\Sigma)$, is the integer $\chi(\Sigma) \defn v - e + f$.
+% \end{definition}
+
+
+% This statement is encapsulated in the following result.
+%
+\begin{theorem}[Global Gauss-Bonnet]\label{thm:gauss-bonnet}
+Let $\Sigma$ be a regular oriented surface with Gaussian curvature $K$, geodesic curvature $k_g$ along $\partial \Sigma = C_1 \cup C_2 \cup \ldots \cup C_i$, where $C_i$ are closed, simple, piecewise and regular curves with exterior angles $\alpha_1, \ldots, \alpha_p$. Then
+\begin{equation}\label{eq:gauss-bonnet}
+\int_R K dA + \sum_{i=1}^n \int_{C_i} k_g ds + \sum_{i=1}^p \alpha_p = 2 \pi \chi(\Sigma)
+\end{equation}
+where $\chi(\Sigma)$ is the Euler characteristic of the surface $\Sigma$.
+\end{theorem}
+
+\begin{theorem}[]\label{}
+Any two geodesics emanating from the same point $s \in \Sigma$ (source) that meet at $o \in \Sigma$ (observer) on a surface with everywhere negative curvature necessarily enclose a region $R$ with nontrivial genus. That is, $g(R) \ge 1$.
+\end{theorem}
+\begin{proof}
+For two geodesics two meet, the enclosed area must have interior angles $\theta_1, theta_2$ such that $\theta_1 + \theta_2 > 0$. The interior angles are given by $\sum_{i=1}^p \alpha_p = \sum_{i=1}^p(\pi-\theta_i) = p \pi - \sum_{i=1}^p \theta_i$. For our case $p=2$, and \cref{eq:gauss-bonnet} may be simplified to
+\begin{align*}
+&\int_R K dA + \sum_{i=1}^n \int_{C_i} k_g ds + 2 \pi - \theta_s - \theta_o = 2 \pi \chi(\Sigma) \\
+&\implies \theta_s + \theta_o = 2 \pi (1 - \chi) + \int_R K dA + \sum_{i=1}^n \int_{C_i} k_g ds \\
+&\implies \theta_s + \theta_o = 2 \pi g + \int_R K dA > 0
+\end{align*}
+where in the second to last line we've used the fact that the geodesic curvature along a geodesic boundary is zero.
+Therefore $g \ge 1$ is a necessary condition for geodesics to reunite.
+\end{proof}
+
+% \begin{theorem}[Gauss's Theorema Egregium]\label{}
+% The gaussian curvature $K$ of a surface $\Sigma$
+% \end{theorem}
+
+
+% \begin{theorem}[Global Gauss Bonnet]\label{}
+% Suppose $M$ is a compact two dimensional Riemannian manifold with boundary. Let $K$ be the Gaussian curvature of M, and let $k_g$ be the geodesic curvature on the boundary. Then
+% \begin{equation}\label{}
+% \int_M K \, dA + \int_{\partial M} k_g \, ds = 2 \pi \xi(M)
+% \end{equation}
+% where $dA$ is area element, $ds$ is the line element along the boundary, and $\xi(M)$ is the Euler characteristic of $M$.
+% \end{theorem}
