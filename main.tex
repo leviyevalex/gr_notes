@@ -19,6 +19,7 @@
 % Define theorem styles here based on the definition style (used for definitions and examples)
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
+\newtheorem{question}{Question}
 \newtheorem{claim}{Claim}
 \newtheorem{implementation}{Implementation}
 % Define theorem styles here based on the plain style (used for theorems, lemmas, propositions)
@@ -45,11 +46,15 @@
 \newcommand{\lap}{\Delta} %laplacian
 \newcommand{\eps}{\epsilon}
 \newcommand{\lam}{\lambda}
+\newcommand{\gam}{\gamma}
 \newcommand{\man}{\mathcal{M}} % manifold
 \newcommand{\vg}{\dot{\gamma}} % dotted velocity curve
 \newcommand{\veta}{\dot{\eta}} % dotted velocity eta
 \newcommand{\tanb}{\Gamma T \man} % tangent bundle
 \newcommand{\ddx}[1]{\diffp*{}{x^#1}}
+\newcommand{\at}{\rvert} % evaluation bar
+\newcommand{\lie}{\mathcal{L}}
+\newcommand{\order}{\mathcal{O}}
 % \DeclareMathOperator{\min}{min}
 \DeclareMathOperator{\Tr}{Tr}
 
@@ -62,15 +67,15 @@
 
 
 \begin{document}
-\title{Topological effects in gravitational lensing}
+\title{Topological origins of gravitational lensing}
 \author[1]{Alex Leviyev}
-\affil[1]{Center for Graviational Physics, University of Texas at Austin}
+\affil[1]{Center for Gravitational Physics, University of Texas at Austin}
 \date{\today}
 % \tableofcontents
 \maketitle
 
 \begin{abstract}
-Deflection of light by gravitational fields is of significant practical interest in astrophysics. Applications range from constraining cosmological parameters to studying the distribution of dark matter in galaxies. In this note we review an interesting theoretical study illustrating that gravitational lensing depends on \textbf{topological} properties. That is, questions about whether multiple images appear, etc... may be answered by looking at topological properties of the spacetime. Global properties and curvature are related by the so called Gauss-Bonnet theorem, which relates the Gaussian curvature to the Euler characteristic.
+Deflection of light by gravitational fields is of significant practical interest in astrophysics \cite{congdon2018principles}. Applications range from constraining cosmological parameters to studying the distribution of dark matter in galaxies. In this note we review an interesting theoretical study illustrating that gravitational lensing has topological origins. That is, questions about whether multiple images appear, etc... may be answered by looking at topological properties of model spacetimes. We briefly review Fermat's principle, optical geometry, and other relevant results before discussing the topological nature of lensing. Our discussion concludes by introducing the so called Gauss-Bonnet theorem, which relates the Gaussian curvature to the Euler characteristic, which will allow us to study the lensing properties of a Schwarzschild spacetime specifically and demonstrate the claim.
 % High-precision posterior exploration forms the backbone of many scientific and engineering disciplines, e.g astronomy. Popular tools used for such tasks are often based on the tried and true Metropolis-Hastings algorithm--a \textit{stochastic} procedure that simulates a Markov chain that is gauranteed to explore the target. However, simulating such a Markov chain for problems with computationally expensive physical models or large datasets is often infeasible. Stein variational gradient descent (SVGD) is an alternative that has recently blown up in popularity due to its tractability
 \end{abstract}
 
