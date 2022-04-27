@@ -1,6 +1,14 @@
 %!TEX root = main.tex
 
 \section{Introduction}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.65\textwidth]{img/einstein-ring.png}
+	\caption{A so called ``Einstein ring". Source: \url{https://en.wikipedia.org/wiki/Gravitational_lens}}
+	\label{}
+\end{figure}
+
 We will be discussing the phenomena of gravitational lensing using a relatively novel approach.
 Although lensing is a inherently geometric phenomena, many lensing effects may be adequately studied in a Newtonian limit, and thus bypass the need to do general relativistic calculations.
 This is not always the case however, and a lot of work has been done studying gravitational lensing in general Lorentzian manifolds \cite{1992grle.book.....S}.
@@ -24,7 +32,7 @@ This appears to be the first version of \textbf{Fermat's principle}, which turns
 Generally, light always takes the shortest path \textit{in time}.
 This may be posed as a calculus of variations problem in $\reals^3$ as follows.
 Let $\gamma: (0,1) \to \reals^3$.
-The actual path $\gamma$ taken minimizes the action $S[\gamma] \defn \int_{\gamma} \, dt = \frac{1}{c}\int_{\gamma} n \, dl$, where $n$ is a spatially varying refractive index, and $l$ is the arclength of the curve.
+The actual path $\gamma$ taken extremizes the action $S[\gamma] \defn \int_{\gamma} \, dt = \frac{1}{c}\int_{\gamma} n \, dl$, where $n$ is a spatially varying refractive index, and $l$ is the arclength of the curve.
 This is in regular Euclidean space however, we need a generalization of this principle to Lorentzian spacetimes.
 %
 % Recall the following definitions in the spacetime setting
@@ -70,11 +78,11 @@ This is in regular Euclidean space however, we need a generalization of this pri
 % \end{align*}
 % \end{proof}
 %
-Before stating the theorem, we introduce the following definition from the calculus of variations on smooth manifolds which will be used in the proof.\footnote{We only need the statement of the theorem in what follows, but the proof is presented as well due to its simplicity.}
+Before stating the generalization of Fermat's principle to spacetime, we introduce the following definition from the calculus of variations on smooth manifolds which will be used in the proof (and later when we discuss geodesic deviation).\footnote{We only need the statement of the theorem in what follows, but the proof is presented as well due to its simplicity.}
 \begin{definition}[]\label{def:variation}
 Let $\gamma: I \to \man$ be a smooth curve on a smooth manifold $(\man, g)$. A \textbf{variation} of $\gamma$ is a smooth function $\phi: (-\eps, \eps) \times I \to \man$ (for some $\eps>0$) such that $\gamma(t) = \phi(0, t) \; \forall t \in I$. For each fixed $s\in (-\eps, \eps)$, the path $\gamma_s(t) \defn \phi(s, t)$ is called a \textbf{curve of the variation}, and the vector field along $\gamma$ defined by $w(t) \defn \nabla_s \phi(0, t)$ is called the \textbf{variational vector field} of $\phi$. The variation $\phi$ is called \textbf{orthogonal} if $g(w(t), \gamma'(t))$ $\; \forall t \in I$.
 \end{definition}
-In contrast to the classical Fermat principle, on spacetime the \textit{arrival time} of a light ray (a local property) is extremized.
+In contrast to the classical Fermat principle on $\reals^3$, which chooses a path which extremizes the total journey time (a global quantity), on spacetime Fermat's principle chooses the path which extremizes the \textit{arrival time} of a light ray (a local property). See \cref{fig:fermat-spacetime} for the setup.
 \begin{theorem}[Fermat \cite{1992grle.book.....S}]\label{}
 Let $(\man, g)$ be a spacetime, $S \in \man$ be a source, and $l$ be an observer. Then a smooth null curve $\gamma: (0,1) \to \man$ such that $\gamma(0) = S$ and $\gamma(1) = l(\tau)$ is a null geodesic iff its arrival time functional $\tau[\gamma]$ is stationary under first order variations of $\gamma$ within the set of smooth null curves from $S$ to $l$.
 \end{theorem}
@@ -85,8 +93,8 @@ Furthermore, let $g(\veta(\lambda, \eps), \veta(\lambda, \eps)) = 0$ for every $
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/null-variations.png}
-	\caption{Family of null variations}
-	\label{}
+	\caption{Illustration of Fermat's principle on spacetime. $\eta$ represents a variation for which every curve of the variation is a null curve. $l$ denotes an observer. The arrival time functional $\tau[\eta_{\eps}]$ (which crucially depends on the path chosen) is extremized.}
+	\label{fig:fermat-spacetime}
 \end{figure}
 
 The action takes the form
@@ -129,7 +137,7 @@ Since $\veta$ is lightlike and $\dot{\xi}$ is timelike, their contraction is non
 
 \subsection{From Lorentzian manifold to spatial manifold}
 A well known feature of general relativity is that light rays follow null geodesics in spacetime.
-Interestingly, we may show using Fermat's theorem \cite{PerlickV1990OFpi} that null geodesics on a \textbf{stationary} spacetime are in one-to-one correspondence with geodesics on a Finsler-Randers type manifold, and null geodesics on a \textbf{static} spacetime are in one-to-one correspondence with geodesics on a Riemannian manifold. The strategy of optical geometry is to study these simpler spatial geodesics instead. These simpler metrics are called the \textbf{optical metric}, or the \textbf{Fermat metric}.
+Interestingly, we may show using Fermat's theorem \cite{PerlickV1990OFpi} that null geodesics on a \textbf{stationary} spacetime are in one-to-one correspondence with geodesics on a Finsler-Randers type manifold\footnote{This class of metric was initially proposed as an alternative model of gravity which features a preferred direction for time. Although the generalizations are straightforward, we will only investigate Riemannian metrics in what follows. Note that Finsler-Randers metrics contain Riemannian metrics as a special case.}, and null geodesics on a \textbf{static} spacetime are in one-to-one correspondence with geodesics on a Riemannian manifold. The strategy of optical geometry is to study these simpler spatial geodesics instead. These simpler metrics are called the \textbf{optical metric}, or the \textbf{Fermat metric}.
 
 \begin{definition}[]\label{}
 A spacetime $(\man, g)$ is called \textbf{stationary} if there is a timelike killing vector field $T \in \tanb$ satisfying
@@ -233,7 +241,7 @@ The components of the \textbf{optical metric of equatorial Schwarzschild} are gi
 The geodesics of this metric are called \textbf{spatial light rays}.
 \end{definition}
 
-\subsection{Visualizing the geometry}
+\subsection{Visualizing the optical geometry of Schwarzschild}
 To build intuition for this geometry we aim to find an isometric embedding into three dimensional Euclidean space $\mathbb{E}^3$. We proceed in cylindrical coordinates
 % \begin{equation}\label{}
 % dt^2 = \frac{dr^2}{\brk[r]1{1 - \frac{2m}{r}}^2} + \frac{r^2}{1 - \frac{2m}{r}} d\phi^2
@@ -290,7 +298,7 @@ $\diff{z}{R}$ is singular at $R(r=3m)$. This corresponds to the circular photon 
 For $r>3m$, the slope is positive. On the other hand, for $\frac{9}{4}m < r < 3m$ the slope is negative.
 \end{enumerate}
 %
-A surface with these properties is represented in \ref{fig:embedding}.
+A surface with these properties is represented in \cref{fig:embedding}.
 Visually, it appears as though this surface has everywhere negative Gaussian curvature. Indeed this is case, and may be shown analytically.
 \begin{proposition}[]\label{prop:neg-gauss-curve}
 The Gaussian curvature associated with the Fermat metric of equatorial Schwarzschild has everywhere negative curvature. Specifically, for $r > \frac{9}{4}m$,
@@ -307,16 +315,26 @@ K = - \frac{2m}{r^3}\brk[r]2{1 - \frac{3m}{2r}} < 0.
 \end{figure}
 
 % \section{Gauss-Bonnet and gravitational lensing}
-We are now in possession of a negatively curved surface $\Sigma$ on which geodesic behavior tells us about the behavior of light rays on the equatorial plane of Schwarzschild. We may now use well known results from surface analysis to tease out the physics we are interested in. The first question we would like to address is the following:
+We are now in possession of a negatively curved surface $\Sigma$ on which geodesic behavior tells us about the behavior of light rays on the equatorial plane of Schwarzschild. We may now use well known results from surface analysis to tease out the physics we are interested in.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/lensing.png}
+	\caption{An illustration of lensing. Mathematically, this is modelled by the intersection of the light ray with an observer. Source: \url{https://earthsky.org/space/what-is-gravitational-lensing-einstein-ring/}}
+	\label{fig:lensing}
+\end{figure}
+
 \subsection{Geodesic deviation}
-Note that gravitational lensing can only occur when two or more geodesics emanating from the same point $s \in \Sigma$ (source) on the catenoid recombine at a later point $o \in \Sigma$ (observer).
+Note that gravitational lensing can only occur when two or more geodesics emanating from the same point $s \in \Sigma$ (source) on the catenoid recombine at a later point $o \in \Sigma$ (observer) as in \cref{fig:lensing}.
 A fact of life however is that geodesics diverge locally in the presence of negative curvature (\cref{thm:geodesic-deviation}), which at face value seems to imply that geodesics never rejoin in a Schwarzschild spacetime.
 However, it turns out that geodesics may rejoin even on a surface with negative curvature as long as the surface is not \textit{simply connected}.
 Indeed this is the case for the optical geometry (\cref{thm:nontrivial-topology}), and in this way a nontrivial topology allows for gravitational lensing to occur.
-\begin{question}[]\label{}
-Under what circumstances can two geodesics with the same initial point $s \in \Sigma$ (source) meet at another point $o \in \Sigma$ (observer)?
-\end{question}
-The answer to this question will tell us under what conditions one may expect gravitational lensing! Before getting to this, we discuss some of the tools we will need to make sense of negatively curved surfaces. Specifically, we aim to show that geodesics locally divergence in the presence of negative curvature. To show this, we must introduce the concept of \textit{Jacobi fields}, which is the appropriate ``data structure" to work with when we are interested in studying the behavior of nearby geodesics.
+
+% \begin{question}[]\label{}
+% Under what circumstances can two geodesics with the same initial point $s \in \Sigma$ (source) meet at another point $o \in \Sigma$ (observer)?
+
+% \end{question}
+Before moving forward, we discuss some of the tools we will need to make sense of negatively curved surfaces. Specifically, to show that geodesics locally diverge in the presence of negative curvature requires the concept of \textit{Jacobi fields}, which provide the appropriate ``data structure" to work with when we are interested in studying the behavior of geodesics nearby a ``reference" geodesic.
 \begin{definition}[]\label{}
 Let $\Sigma$ be a regular surface and $\gamma: I \to \Sigma$ be a geodesic. A variation of $\gamma$ is called a \textbf{geodesic variation} if every curve of the variation is a geodesic.
 \end{definition}
@@ -340,6 +358,14 @@ Let $\gamma: I \to \Sigma$ be a curve in $\Sigma$ such that $\gamma(0)=p$, $\dot
 \end{equation}
 where $K$ is the Gaussian curvature of $\Sigma$.
 \end{theorem}
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/deviation.png}
+	\caption{An illustration of the effect that curvature has on geodesic deviation. The straight line shows how straight lines would deviate from each other in flat space. The presense of negative or positive curvature cause a ``deviation" from flat space.}
+	\label{}
+\end{figure}
+
+
 If the curvature is negative, there is more relative spread than compared to flat space.
 This is precisely the phenomena of \textbf{geodesic deviation}.
 At first glance, it appears as though geodesics can never reconverge since we have a result stating that locally geodesics diverge.
@@ -350,7 +376,7 @@ A proof of this statement requires the Gauss-Bonnet theorem, which is a famous t
 \begin{definition}[]\label{}
 Let $\Sigma$ be an oriented surface, and $\gamma: \reals \to \Sigma$ be a regular curve parameterized by arclength. Then the \textbf{geodesic curvature} $k_g:\reals \to \reals$ is defined by $k_g(t) \defn \norm{\nabla_{\dot{\gamma}(t)}(t)}$.
 \end{definition}
-Recall that for $\gamma$ to be a geodesic, $\nabla_{\dot{\gamma}(t)}(t)$, must be equal to zero. Thus, the geodesic curvature $k_g(t)$ along a curve $\gamma(t)$ measures the failure of a curve to be a geodesic at $t$. This quantity is also referred to as the norm of the \textbf{acceleration}.
+Recall that for $\gamma$ to be a geodesic, $\nabla_{\dot{\gamma}(t)}\dot{\gamma}(t)$, must be equal to zero $\forall t$. Thus, the geodesic curvature $k_g(t)$ along a curve $\gamma(t)$ measures the failure of a curve to be a geodesic at $t$. This quantity is also referred to as the norm of the \textbf{acceleration}.
 %
 The following discussion (and all colored figures in this section) are from \cite{tapp2016differential}.
 \begin{definition}[]\label{}
@@ -399,11 +425,19 @@ The \textbf{exterior angle} at the junction of two piecewise differentiable curv
 
 % This statement is encapsulated in the following result.
 %
+
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.55\textwidth]{img/gauss-bonnet-setup.png}
+	\includegraphics[width=0.5\textwidth]{img/global-gauss-bonnet.png}
+	\caption{Example of regular regions with positively oriented boundary components that Gauss-Bonnet may be applied to.}
+	\label{fig:gauss-bonnet-global}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.65\textwidth]{img/gauss-bonnet-setup.png}
 	\caption{We apply the Gauss-Bonnet theorem to the black region. Note that it is bounded on the bottom by the $r=3m$ photon orbit (which is a geodesic), and by two other geodesics $\gamma_1, \gamma_2$.}
-	\label{}
+	\label{fig:gauss-bonnet-setup}
 \end{figure}
 
 \begin{theorem}[Global Gauss-Bonnet]\label{thm:gauss-bonnet}
@@ -413,31 +447,38 @@ Let $\Sigma$ be a regular oriented surface with Gaussian curvature $K$, geodesic
 \end{equation}
 where $\chi(\Sigma)$ is the Euler characteristic of the surface $\Sigma$.
 \end{theorem}
+Although this result may seem intimidating, the way we use it in practice should be familiar: in particular, its use resembles contour integration and Stokes theorem. That is, we define a region bounded by oriented curves, and relate various quantities on the boundaries with various quantities on the domain. See \cref{fig:gauss-bonnet-global}.
+
+
 
 \subsection{Applications to gravitational lensing}
 \begin{theorem}[]\label{thm:nontrivial-topology}
 Any two geodesics emanating from the same point $s \in \Sigma$ (source) that meet at $o \in \Sigma$ (observer) on a surface with everywhere negative curvature necessarily enclose a region $R$ with nontrivial genus. That is, $g(R) \ge 1$.
 \end{theorem}
 \begin{proof}
-For two geodesics two meet, the enclosed area must have interior angles $\theta_1, theta_2$ such that $\theta_1 + \theta_2 > 0$. The interior angles are given by $\sum_{i=1}^p \alpha_p = \sum_{i=1}^p(\pi-\theta_i) = p \pi - \sum_{i=1}^p \theta_i$. For our case $p=2$, and \cref{eq:gauss-bonnet} may be simplified to
+We use the setup described in \cref{fig:gauss-bonnet-setup}. For two geodesics two meet, the enclosed area must have interior angles $\theta_1, \theta_2$ such that $\theta_1 + \theta_2 > 0$. The interior angles are given by $\sum_{i=1}^p \alpha_p = \sum_{i=1}^p(\pi-\theta_i) = p \pi - \sum_{i=1}^p \theta_i$. For our case $p=2$, and \cref{eq:gauss-bonnet} may be simplified to
 \begin{align*}
 &\int_R K dA + \sum_{i=1}^n \int_{C_i} k_g ds + 2 \pi - \theta_s - \theta_o = 2 \pi \chi(\Sigma) \\
 &\implies \theta_s + \theta_o = 2 \pi (1 - \chi) + \int_R K dA + \sum_{i=1}^n \int_{C_i} k_g ds \\
 &\implies \theta_s + \theta_o = 2 \pi g + \int_R K dA > 0
 \end{align*}
-where in the second to last line we've used the fact that the geodesic curvature along a geodesic boundary is zero.
+where in the second to last line we've used the fact that the geodesic curvature along all curves forming the boundary is zero (because they are all geodesics).
 Therefore $g \ge 1$ is a necessary condition for geodesics to reunite.
 \end{proof}
+This state of affairs is actually well known, see \cref{fig:geodesics-cylinder}.
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.5\textwidth]{img/geodesics-on-cylinder.png}
 	\caption{How geodesics can rejoin on the cylinder.}
-	\label{}
+	\label{fig:geodesics-cylinder}
 \end{figure}
 % \begin{theorem}[Gauss's Theorema Egregium]\label{}
 % The gaussian curvature $K$ of a surface $\Sigma$
 % \end{theorem}
+\section{Conclusion}
+The purpose of this note was to show that gravitational lensing has topological origins. To prove this, we introduced the technique of \textit{optical geometry}, which simplifies the study of light rays on Lorentzian manifolds to the study of spatial light rays on a simpler \textit{Fermat metric}. We then applied this technique to the particular case of a \textit{Schwarzschild spacetime}, and showed that the nontrivial topology of the optical geometry was a necessary condition to ensure that gravitational lensing effects occur.
 
+This line of reasoning leads to many deeper results as well. For example, one may calculate an exact deflection angle in terms of the Gaussian curvature, and show that the leading order term agrees with the quasi-Newton approach. More dramatically, one may use results in Morse theory\footnote{Morse theory is an approach that studies functions (so called Morse functions) on a manifold in order to probe the underlying manifold on which they are defined.} to show that only an \textit{odd number of images} may ever be formed due to gravitational lensing \cite{Hasse_2006}.
 
 % \begin{theorem}[Global Gauss Bonnet]\label{}
 % Suppose $M$ is a compact two dimensional Riemannian manifold with boundary. Let $K$ be the Gaussian curvature of M, and let $k_g$ be the geodesic curvature on the boundary. Then
